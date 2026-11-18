@@ -1,11 +1,13 @@
 # Проект FitLife - MVP версия 1.0
 WATER_ML_PER_KG = 30
 ML_IN_LITER = 1000
+
+
 def main():
+    """Основная функция программы."""
     # 1. Знакомство
     user_name = input("Привет! Как вас зовут? ")
     user_age = int(input("Введите ваш возраст (полных лет, целым числом): "))
-
 
     # 2. Сбор данных
     user_weight = float(
@@ -20,13 +22,13 @@ def main():
     bmi = user_weight / (user_height ** 2)
     bmi = round(bmi, 1)
 
-
     # Подсчет воды: вес * 30 мл
     water_needed = user_weight * WATER_ML_PER_KG
     water_l = water_needed / ML_IN_LITER
 
     # Возврат всех перечисленных значений
     return user_name, user_age, bmi, water_needed, water_l
+
 
 if __name__== "__main__":
     user_name, user_age, bmi, water_needed, water_l = main()     
@@ -36,5 +38,5 @@ if __name__== "__main__":
         f"Вам {user_age} лет.\n"
         f"Ваш индекс массы тела: {bmi:.1f}\n"
         f"Рекомендуемая норма воды: {water_l:.1f} л. в день\n"
-        "Расчет окончен. Будьте здоровы!"
-        )
+        "Расчет окончен. Будьте здоровы!",
+    )
