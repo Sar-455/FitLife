@@ -1,38 +1,40 @@
 # Проект FitLife - MVP версия 1.0
+WATER_ML_PER_KG = 30
+ML_IN_LITER = 1000
+def main():
+    # 1. Знакомство
+    user_name = input("Привет! Как вас зовут? ")
+    user_age = int(input("Введите ваш возраст (полных лет, целым числом): "))
 
 
-# 1. Знакомство
-# TODO: Спроси у пользователя имя и сохрани в переменную user_name
-user_name = input("Привет! Как вас зовут? ")
-# TODO: Спроси возраст и сохрани в переменную user_age
-user_age = int(input("Введите ваш возраст: "))
+    # 2. Сбор данных
+    user_weight = float(
+        input("Введите ваш вес (в кг, например 70.5): ").replace(",", ".")
+    )
+    user_height = float(
+        input("Введите ваш рост (в метрах, например 1.75): ").replace(",", ".")
+    )
+
+    # 3. Логика расчетов (Функции как "черный ящик": используем арифметику)
+    # Формула ИМТ: вес разделить на (рост в квадрате)
+    bmi = user_weight / (user_height ** 2)
+    bmi = round(bmi, 1)
 
 
-# 2. Сбор данных
-# TODO: Запроси вес (в кг) и сохрани в user_weight (тип float)
-user_weight = float(input("Введите ваш вес (в кг): "))
-# TODO: Запроси рост (в метрах, можно 1.75) и сохрани в user_height (тип float)
-user_height = float(input("Введите ваш рост (в метрах): "))
+    # Подсчет воды: вес * 30 мл
+    water_needed = user_weight * WATER_ML_PER_KG
+    water_l = water_needed / ML_IN_LITER
 
+    # Возврат всех перечисленных значений
+    return user_name, user_age, bmi, water_needed, water_l
 
-# 3. Логика расчетов (Функции как "черный ящик": используем арифметику)
-# Формула ИМТ: вес разделить на (рост в квадрате)
-# TODO: Раccчёт индекса массы тела
-bmi = user_weight / (user_height ** 2)
-bmi = round(bmi, 1)
-
-
-# Подсчет воды: вес * 30 мл
-# TODO: Рассчитай water_needed
-water_needed = user_weight * 30
-water_l = water_needed / 1000
-
-
-# 4. Вывод красивого результата
-# TODO: Используй f-строку, чтобы вывести приветствие)
-print(f"Привет, {user_name}!")
-# TODO: Выведи возраст, ИМТ (округленный до 1 знака) и норму воды.
-print(f"Вам {user_age} лет.")
-print(f"Ваш индекс массы тела: {bmi: .1f}")
-print(f"Рекомендуемая норма воды: {water_l:.1f} л. в день")
-print("Расчет окончен. Будьте здоровы, Амалия!")
+if __name__== "__main__":
+    user_name, user_age, bmi, water_needed, water_l = main()     
+    # 4. Вывод красивого результата
+    print(
+        f"Привет, {user_name}!\n"
+        f"Вам {user_age} лет.\n"
+        f"Ваш индекс массы тела: {bmi:.1f}\n"
+        f"Рекомендуемая норма воды: {water_l:.1f} л. в день\n"
+        "Расчет окончен. Будьте здоровы!"
+        )
