@@ -32,7 +32,7 @@ def main():
 
 if __name__ == "__main__":
     user_name, user_age, bmi, water_needed, water_l = main()
-    
+
     print(
         f"Привет, {user_name}!\n"
         f"Вам {user_age} лет.\n"
