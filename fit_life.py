@@ -30,8 +30,8 @@ def main():
     return user_name, user_age, bmi, water_needed, water_l
 
 
-if __name__== "__main__":
-    user_name, user_age, bmi, water_needed, water_l = main()     
+if __name__ ==  "__main__":
+    user_name, user_age, bmi, water_needed, water_l = main()   
     # 4. Вывод красивого результата
     print(
         f"Привет, {user_name}!\n"
